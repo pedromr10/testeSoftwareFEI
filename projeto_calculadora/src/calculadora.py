@@ -58,6 +58,12 @@ class Calculadora:
         resultado = calc.somar(5, 3)
         self.assertEqual(resultado, 8)
         self.assertEqual(calc.obter_ultimo_resultado(), 8)
+    
+    def test_entrada_saida_extra(self):
+        calc = Calculadora()
+        resultado = calc.somar("5", 3)
+        self.assertEqual(resultado, 8.5)
+        self.assertEqual(calc.obter_ultimo_resultado(), 10)
 
     def test_tipagem_invalida(self):
         calc = Calculadora()
@@ -130,3 +136,4 @@ class Calculadora:
         self.assertEqual(len(calc.historico), 2)
         self.assertIn("2 ^ 3 = 8", calc.historico)
         self.assertIn("8 + 2 = 10", calc.historico)
+
