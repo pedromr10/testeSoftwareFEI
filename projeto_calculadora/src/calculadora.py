@@ -52,3 +52,6 @@ class Calculadora :
   
   def obter_ultimo_resultado ( self ) :
    return self.resultado
+
+calc = Calculadora()
+print(calc.somar(1,2))
