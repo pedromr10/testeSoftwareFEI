@@ -19,6 +19,104 @@ class TestUnidadeCalculadoraExtra(unittest.TestCase):
         with self.assertRaises(TypeError):
             calc.dividir((8,9,10), None) # Tupla e None no lugar de numero
 
-    #COLOCAR MAIS TESTES
+    def test_consistencia_historico_extra(self):
+        # 145+378=523, 982−467=515, 23×17=391, 144÷12=12, 5^4=625
+        calc = Calculadora()
+        calc.somar(145, 378)
+        calc.subtrair(982, 467)
+        calc.multiplicar(23, 17)
+        calc.dividir(144, 12)
+        calc.potencia(5, 4)
+        self.assertEqual(len(calc.historico) , 5)
+        self.assertIn("145 + 378 = 523", calc.historico)
+        self.assertIn("982 - 467 = 515", calc.historico)
+        self.assertIn("23 * 17 = 391", calc.historico)
+        self.assertIn("144 / 12 = 12", calc.historico)
+        self.assertIn("5 ^ 4 = 625", calc.historico)
+
+    # se não estiver escrito, feito em cima, falta fazer
+    def test_inicializacao(self) :
+        calc = Calculadora()
+        self.assertEqual(calc.resultado , 0)
+        self.assertEqual(len(calc.historico) , 0)
+
+    def test_modificacao_historico ( self ) :
+        calc = Calculadora ()
+        calc.somar(1 , 1)
+        self.assertEqual(len(calc.historico) , 1)
+        calc.limpar_historico()
+        self.assertEqual(len(calc.historico) , 0)
+
+        calc.subtrair(4 , 2)
+        self.assertEqual(len(calc.historico) , 1)
+        calc.limpar_historico()
+        self.assertEqual(len(calc.historico) , 0)
+
+        calc.multiplicar(2 , 2)
+        self.assertEqual(len(calc.historico) , 1)
+        calc.limpar_historico()
+        self.assertEqual(len(calc.historico) , 0)
+
+        calc.subtrair(6 , 3)
+        self.assertEqual(len(calc.historico) , 1)
+        calc.limpar_historico()
+        self.assertEqual(len(calc.historico) , 0)
+
+    def test_limite_inferior(self):
+        calc = Calculadora ()
+        # Teste com zero
+        resultado = calc.somar(0 , 5)
+        self.assertEqual(resultado , 5)
+        resultado = calc.subtrair(0 , 5)
+        self.assertEqual(resultado , -5)
+        resultado = calc.multiplicar(0 , 5)
+        self.assertEqual(resultado , 0)
+        resultado = calc.dividir(0 , 5)
+        self.assertEqual(resultado , 0)
+        # Teste com numeros negativos muito pequenos
+        resultado = calc.somar(-1e-10 , -1e-10)
+        self.assertEqual(resultado , -2e-10)
+        resultado = calc.subtrair(-2e-10 , -1e-10)
+        self.assertEqual(resultado , -1e-10)
+        resultado = calc.multiplicar(-1e-10 , 2)
+        self.assertEqual(resultado , -2e-10)
+        resultado = calc.dividir(-1e-10 , 2)
+        self.assertEqual(resultado , -5e-11)
+
+    def test_limite_superior(self):
+        calc = Calculadora()
+        # Teste com numeros grandes
+        resultado = calc.somar(1e300, 1e300)
+        self.assertEqual(resultado, 2e300)
+        resultado = calc.subtrair(2e300, 1e150)
+        self.assertEqual(resultado, 2e300)
+        resultado = calc.multiplicar(1e300, 1e2)
+        self.assertEqual(resultado, 1e302)
+        resultado = calc.dividir(2e300, 1e150)
+        self.assertEqual(resultado, 2e150)
+
+    #feito
+    def test_divisao_por_zero(self):
+        calc = Calculadora()
+        with self.assertRaises(ValueError):
+            calc.dividir(783, 0)
+
+    def test_fluxos_divisao(self):
+        calc = Calculadora()
+        # Caminho normal
+        resultado = calc.dividir(10 , 2)
+        self.assertEqual(resultado , 5)
+        # Caminho de erro
+        with self.assertRaises(ValueError):
+            calc.dividir(10 , 0)
+
+    #feito
+    def test_mensagens_erro(self):
+        calc = Calculadora()
+        try:
+            calc.somar(5, '1')
+        except ValueError as e:
+            self.assertEqual(str(e), "Soma com string eh impossivel")
+
 if __name__ == "__main__":
     unittest.main()
