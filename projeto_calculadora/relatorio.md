@@ -74,6 +74,6 @@ FAILED (failures=4, errors=2)
 #### Soluções:
 Os problemas citados foram criados para serem anômalos, apenas para debug. Desta maneira, não foram necessárias correções, uma vez que os testes de assertividade obtiveram respostas positivas.
 
-#### Lições aprendidas sobre cada tipo de teste:
+### Lições aprendidas sobre cada tipo de teste:
 
 Cada tipo de teste possui sua importância, quando visto por um todo. Nenhum é mais ou menos importante que outro, uma vez que todos precisam estar funcionando para que o sistema consiga fluir normalmente e de forma desejada.
