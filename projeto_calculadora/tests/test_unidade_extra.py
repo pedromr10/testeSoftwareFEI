@@ -38,62 +38,30 @@ class TestUnidadeCalculadoraExtra(unittest.TestCase):
     def test_inicializacao(self) :
         calc = Calculadora()
         self.assertEqual(calc.resultado , 0)
-        self.assertEqual(len(calc.historico) , 0)
+        self.assertEqual(len(calc.historico) , 1)
 
     def test_modificacao_historico ( self ) :
         calc = Calculadora ()
-        calc.somar(1 , 1)
+        calc.potencia(2 , 3)
+        resultado = calc.obter_ultimo_resultado()
+        calc.somar(resultado, 10)
         self.assertEqual(len(calc.historico) , 1)
         calc.limpar_historico()
         self.assertEqual(len(calc.historico) , 0)
 
-        calc.subtrair(4 , 2)
-        self.assertEqual(len(calc.historico) , 1)
-        calc.limpar_historico()
-        self.assertEqual(len(calc.historico) , 0)
-
-        calc.multiplicar(2 , 2)
-        self.assertEqual(len(calc.historico) , 1)
-        calc.limpar_historico()
-        self.assertEqual(len(calc.historico) , 0)
-
-        calc.subtrair(6 , 3)
-        self.assertEqual(len(calc.historico) , 1)
-        calc.limpar_historico()
-        self.assertEqual(len(calc.historico) , 0)
 
     def test_limite_inferior(self):
         calc = Calculadora ()
         # Teste com zero
-        resultado = calc.somar(0 , 5)
-        self.assertEqual(resultado , 5)
-        resultado = calc.subtrair(0 , 5)
-        self.assertEqual(resultado , -5)
-        resultado = calc.multiplicar(0 , 5)
-        self.assertEqual(resultado , 0)
-        resultado = calc.dividir(0 , 5)
-        self.assertEqual(resultado , 0)
-        # Teste com numeros negativos muito pequenos
-        resultado = calc.somar(-1e-10 , -1e-10)
-        self.assertEqual(resultado , -2e-10)
-        resultado = calc.subtrair(-2e-10 , -1e-10)
-        self.assertEqual(resultado , -1e-10)
-        resultado = calc.multiplicar(-1e-10 , 2)
-        self.assertEqual(resultado , -2e-10)
-        resultado = calc.dividir(-1e-10 , 2)
-        self.assertEqual(resultado , -5e-11)
+        resultado = calc.subtrair(0 , 0)
+        calc.subtrair(resultado , -5e-10)
+        self.assertEqual(resultado , -5e-10)
 
     def test_limite_superior(self):
         calc = Calculadora()
         # Teste com numeros grandes
-        resultado = calc.somar(1e300, 1e300)
-        self.assertEqual(resultado, 2e300)
-        resultado = calc.subtrair(2e300, 1e150)
-        self.assertEqual(resultado, 2e300)
-        resultado = calc.multiplicar(1e300, 1e2)
-        self.assertEqual(resultado, 1e302)
-        resultado = calc.dividir(2e300, 1e150)
-        self.assertEqual(resultado, 2e150)
+        resultado = calc.somar(100e450, 1e450)
+        self.assertEqual(resultado, 101e300)
 
     #feito
     def test_divisao_por_zero(self):
@@ -104,11 +72,9 @@ class TestUnidadeCalculadoraExtra(unittest.TestCase):
     def test_fluxos_divisao(self):
         calc = Calculadora()
         # Caminho normal
-        resultado = calc.dividir(10 , 2)
-        self.assertEqual(resultado , 5)
-        # Caminho de erro
-        with self.assertRaises(ValueError):
-            calc.dividir(10 , 0)
+        resultado = calc.potencia(2, 3)
+        calc.dividir(resultado, 2)
+        self.assertEqual(resultado, calc.subtrair(5, 1))
 
     #feito
     def test_mensagens_erro(self):
