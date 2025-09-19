@@ -77,3 +77,14 @@ Os problemas citados foram criados para serem anômalos, apenas para debug. Dest
 ### Lições aprendidas sobre cada tipo de teste:
 
 Cada tipo de teste possui sua importância, quando visto por um todo. Nenhum é mais ou menos importante que outro, uma vez que todos precisam estar funcionando para que o sistema consiga fluir normalmente e de forma desejada.
+
+
+- 4.1 Teste de Operações Sequenciais
+Esse teste executa uma sequência de operações encadeadas (2 + 3 = 5 → 5 * 4 = 20 -> 20 / 2 = 10)
+O resultado final esperado é 10, e o teste também confirma que o histórico possui exatamente 3 registros correspondentes às operações realizadas.
+- 4.2 Teste de Interface entre Métodos
+Esse teste verifica se métodos diferentes conseguem se comunicar via obter_ultimo_resultado.
+Primeiro é feita uma potência (2 ^3 = 8) e em seguida, o resultado é usado como entrada em outra operação (8 + 2 = 10)
+O teste garante que o valor final armazenado é 10 e que o histórico contém os registros certos
+
+Os testes de integração confirmaram que a calculadora mantém a consistência de resultados e histórico quando operações são executadas em conjunto. Além disso, mostraram que os métodos se integram corretamente por meio do compartilhamento do último resultado.
