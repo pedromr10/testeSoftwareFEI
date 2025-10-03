@@ -34,6 +34,9 @@ class TestCalculator:
         with pytest.raises(ValueError):
             self.calc.factorial(-1)
 
+    def test_factorial(self):
+        assert self.calc.factorial(0) == 1
+
     def test_absolute_value_basic(self):
         """Testa valor absoluto apenas para números positivos."""
         assert self.calc.absolute_value(5) == 5
@@ -68,3 +71,19 @@ class TestCalculator:
         """Testa is_prime apenas para um número primo."""
         assert self.calc.is_prime(7) is True
         # Não testa números compostos, casos especiais - mutantes sobreviverão
+
+    def test_subtract(self):
+        assert self.calc.subtract(5, 3) == 2
+        assert self.calc.subtract(1, 1) == 0
+
+    def test_is_even(self):
+        assert self.calc.is_even(2) is True
+        assert self.calc.is_even(3) is False
+
+    def test_power(self):
+        assert self.calc.power(2, 2) == 4
+        assert self.calc.power(2, 3) == 8
+
+    def test_min_of_three(self):
+        assert self.calc.min_of_three(1, 2, 3) == 1
+        assert self.calc.min_of_three(25, 190, 74) == 25

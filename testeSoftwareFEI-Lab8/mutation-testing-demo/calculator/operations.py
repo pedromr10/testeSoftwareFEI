@@ -23,9 +23,10 @@ class Calculator:
 
     def divide(self, a: Number, b: Number) -> Number:
         """Divide dois números."""
-        if b == 0:
-            raise ValueError("Divisão por zero não é permitida")
-        return a / b
+        try:
+            return a / b
+        except ZeroDivisionError:
+            raise ValueError
 
     def power(self, base: Number, exponent: Number) -> Number:
         """Calcula base elevado ao expoente."""
@@ -33,9 +34,10 @@ class Calculator:
 
     def square_root(self, number: Number) -> float:
         """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("Raiz quadrada de número negativo não é real")
-        return math.sqrt(number)
+        try:
+            math.sqrt(number)
+        except ValueError:
+            raise ValueError
 
     def is_even(self, number: int) -> bool:
         """Verifica se um número é par."""
@@ -44,7 +46,7 @@ class Calculator:
     def factorial(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1

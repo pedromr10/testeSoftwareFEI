@@ -13,7 +13,8 @@
             "tests/test_operations.py::TestCalculator::test_square_root_negative"
         ],
         "calculator.operations.x\u01c1Calculator\u01c1factorial": [
-            "tests/test_operations.py::TestCalculator::test_factorial_negative"
+            "tests/test_operations.py::TestCalculator::test_factorial_negative",
+            "tests/test_operations.py::TestCalculator::test_factorial"
         ],
         "calculator.operations.x\u01c1Calculator\u01c1absolute_value": [
             "tests/test_operations.py::TestCalculator::test_absolute_value_basic"
@@ -35,6 +36,18 @@
         ],
         "calculator.operations.x\u01c1Calculator\u01c1is_prime": [
             "tests/test_operations.py::TestCalculator::test_is_prime_true_case"
+        ],
+        "calculator.operations.x\u01c1Calculator\u01c1is_even": [
+            "tests/test_operations.py::TestCalculator::test_is_even"
+        ],
+        "calculator.operations.x\u01c1Calculator\u01c1subtract": [
+            "tests/test_operations.py::TestCalculator::test_subtract"
+        ],
+        "calculator.operations.x\u01c1Calculator\u01c1power": [
+            "tests/test_operations.py::TestCalculator::test_power"
+        ],
+        "calculator.operations.x\u01c1Calculator\u01c1min_of_three": [
+            "tests/test_operations.py::TestCalculator::test_min_of_three"
         ]
     },
     "duration_by_test": {
@@ -49,7 +62,12 @@
         "tests/test_operations.py::TestCalculator::test_calculate_percentage_basic": 0.0001633649990253616,
         "tests/test_operations.py::TestCalculator::test_grade_classification_a": 0.000182470999789075,
         "tests/test_operations.py::TestCalculator::test_fibonacci_base_case": 0.00013720600145461503,
-        "tests/test_operations.py::TestCalculator::test_is_prime_true_case": 0.00017398400086676702
+        "tests/test_operations.py::TestCalculator::test_is_prime_true_case": 0.00017398400086676702,
+        "tests/test_operations.py::TestCalculator::test_is_even": 0.0001860680000618231,
+        "tests/test_operations.py::TestCalculator::test_subtract": 0.00015003099997557,
+        "tests/test_operations.py::TestCalculator::test_power": 0.00021301800006767735,
+        "tests/test_operations.py::TestCalculator::test_min_of_three": 0.00018978399998559325,
+        "tests/test_operations.py::TestCalculator::test_factorial": 0.00018268100029672496
     },
     "stats_time": 0.261495452
 }

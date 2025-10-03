@@ -100,60 +100,20 @@ class Calculator:
 
     def xǁCalculatorǁdivide__mutmut_orig(self, a: Number, b: Number) -> Number:
         """Divide dois números."""
-        if b == 0:
-            raise ValueError("Divisão por zero não é permitida")
-        return a / b
+        try:
+            return a / b
+        except ZeroDivisionError:
+            raise ValueError
 
     def xǁCalculatorǁdivide__mutmut_1(self, a: Number, b: Number) -> Number:
         """Divide dois números."""
-        if b != 0:
-            raise ValueError("Divisão por zero não é permitida")
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_2(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 1:
-            raise ValueError("Divisão por zero não é permitida")
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_3(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 0:
-            raise ValueError(None)
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_4(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 0:
-            raise ValueError("XXDivisão por zero não é permitidaXX")
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_5(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 0:
-            raise ValueError("divisão por zero não é permitida")
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_6(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 0:
-            raise ValueError("DIVISÃO POR ZERO NÃO É PERMITIDA")
-        return a / b
-
-    def xǁCalculatorǁdivide__mutmut_7(self, a: Number, b: Number) -> Number:
-        """Divide dois números."""
-        if b == 0:
-            raise ValueError("Divisão por zero não é permitida")
-        return a * b
+        try:
+            return a * b
+        except ZeroDivisionError:
+            raise ValueError
     
     xǁCalculatorǁdivide__mutmut_mutants : ClassVar[MutantDict] = {
-    'xǁCalculatorǁdivide__mutmut_1': xǁCalculatorǁdivide__mutmut_1, 
-        'xǁCalculatorǁdivide__mutmut_2': xǁCalculatorǁdivide__mutmut_2, 
-        'xǁCalculatorǁdivide__mutmut_3': xǁCalculatorǁdivide__mutmut_3, 
-        'xǁCalculatorǁdivide__mutmut_4': xǁCalculatorǁdivide__mutmut_4, 
-        'xǁCalculatorǁdivide__mutmut_5': xǁCalculatorǁdivide__mutmut_5, 
-        'xǁCalculatorǁdivide__mutmut_6': xǁCalculatorǁdivide__mutmut_6, 
-        'xǁCalculatorǁdivide__mutmut_7': xǁCalculatorǁdivide__mutmut_7
+    'xǁCalculatorǁdivide__mutmut_1': xǁCalculatorǁdivide__mutmut_1
     }
     
     def divide(self, *args, **kwargs):
@@ -184,60 +144,20 @@ class Calculator:
 
     def xǁCalculatorǁsquare_root__mutmut_orig(self, number: Number) -> float:
         """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("Raiz quadrada de número negativo não é real")
-        return math.sqrt(number)
+        try:
+            math.sqrt(number)
+        except ValueError:
+            raise ValueError
 
     def xǁCalculatorǁsquare_root__mutmut_1(self, number: Number) -> float:
         """Calcula a raiz quadrada de um número."""
-        if number <= 0:
-            raise ValueError("Raiz quadrada de número negativo não é real")
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_2(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 1:
-            raise ValueError("Raiz quadrada de número negativo não é real")
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_3(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError(None)
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_4(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("XXRaiz quadrada de número negativo não é realXX")
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_5(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("raiz quadrada de número negativo não é real")
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_6(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("RAIZ QUADRADA DE NÚMERO NEGATIVO NÃO É REAL")
-        return math.sqrt(number)
-
-    def xǁCalculatorǁsquare_root__mutmut_7(self, number: Number) -> float:
-        """Calcula a raiz quadrada de um número."""
-        if number < 0:
-            raise ValueError("Raiz quadrada de número negativo não é real")
-        return math.sqrt(None)
+        try:
+            math.sqrt(None)
+        except ValueError:
+            raise ValueError
     
     xǁCalculatorǁsquare_root__mutmut_mutants : ClassVar[MutantDict] = {
-    'xǁCalculatorǁsquare_root__mutmut_1': xǁCalculatorǁsquare_root__mutmut_1, 
-        'xǁCalculatorǁsquare_root__mutmut_2': xǁCalculatorǁsquare_root__mutmut_2, 
-        'xǁCalculatorǁsquare_root__mutmut_3': xǁCalculatorǁsquare_root__mutmut_3, 
-        'xǁCalculatorǁsquare_root__mutmut_4': xǁCalculatorǁsquare_root__mutmut_4, 
-        'xǁCalculatorǁsquare_root__mutmut_5': xǁCalculatorǁsquare_root__mutmut_5, 
-        'xǁCalculatorǁsquare_root__mutmut_6': xǁCalculatorǁsquare_root__mutmut_6, 
-        'xǁCalculatorǁsquare_root__mutmut_7': xǁCalculatorǁsquare_root__mutmut_7
+    'xǁCalculatorǁsquare_root__mutmut_1': xǁCalculatorǁsquare_root__mutmut_1
     }
     
     def square_root(self, *args, **kwargs):
@@ -284,7 +204,7 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_orig(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -295,7 +215,7 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_1(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n <= 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -306,7 +226,7 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_2(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 1:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -317,8 +237,8 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_3(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError(None)
-        if n <= 1:
+            raise ValueError
+        if n < 1:
             return 1
         result = 1
         for i in range(2, n + 1):
@@ -328,8 +248,8 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_4(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("XXFatorial não definido para números negativosXX")
-        if n <= 1:
+            raise ValueError
+        if n <= 2:
             return 1
         result = 1
         for i in range(2, n + 1):
@@ -339,9 +259,9 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_5(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
-            return 1
+            return 2
         result = 1
         for i in range(2, n + 1):
             result *= i
@@ -350,51 +270,7 @@ class Calculator:
     def xǁCalculatorǁfactorial__mutmut_6(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("FATORIAL NÃO DEFINIDO PARA NÚMEROS NEGATIVOS")
-        if n <= 1:
-            return 1
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
-
-    def xǁCalculatorǁfactorial__mutmut_7(self, n: int) -> int:
-        """Calcula o fatorial de um número."""
-        if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
-        if n < 1:
-            return 1
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
-
-    def xǁCalculatorǁfactorial__mutmut_8(self, n: int) -> int:
-        """Calcula o fatorial de um número."""
-        if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
-        if n <= 2:
-            return 1
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
-
-    def xǁCalculatorǁfactorial__mutmut_9(self, n: int) -> int:
-        """Calcula o fatorial de um número."""
-        if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
-        if n <= 1:
-            return 2
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
-
-    def xǁCalculatorǁfactorial__mutmut_10(self, n: int) -> int:
-        """Calcula o fatorial de um número."""
-        if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = None
@@ -402,10 +278,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_11(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_7(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 2
@@ -413,10 +289,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_12(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_8(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -424,10 +300,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_13(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_9(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -435,10 +311,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_14(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_10(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -446,10 +322,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_15(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_11(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -457,10 +333,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_16(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_12(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -468,10 +344,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_17(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_13(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -479,10 +355,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_18(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_14(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -490,10 +366,10 @@ class Calculator:
             result *= i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_19(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_15(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -501,10 +377,10 @@ class Calculator:
             result = i
         return result
 
-    def xǁCalculatorǁfactorial__mutmut_20(self, n: int) -> int:
+    def xǁCalculatorǁfactorial__mutmut_16(self, n: int) -> int:
         """Calcula o fatorial de um número."""
         if n < 0:
-            raise ValueError("Fatorial não definido para números negativos")
+            raise ValueError
         if n <= 1:
             return 1
         result = 1
@@ -528,11 +404,7 @@ class Calculator:
         'xǁCalculatorǁfactorial__mutmut_13': xǁCalculatorǁfactorial__mutmut_13, 
         'xǁCalculatorǁfactorial__mutmut_14': xǁCalculatorǁfactorial__mutmut_14, 
         'xǁCalculatorǁfactorial__mutmut_15': xǁCalculatorǁfactorial__mutmut_15, 
-        'xǁCalculatorǁfactorial__mutmut_16': xǁCalculatorǁfactorial__mutmut_16, 
-        'xǁCalculatorǁfactorial__mutmut_17': xǁCalculatorǁfactorial__mutmut_17, 
-        'xǁCalculatorǁfactorial__mutmut_18': xǁCalculatorǁfactorial__mutmut_18, 
-        'xǁCalculatorǁfactorial__mutmut_19': xǁCalculatorǁfactorial__mutmut_19, 
-        'xǁCalculatorǁfactorial__mutmut_20': xǁCalculatorǁfactorial__mutmut_20
+        'xǁCalculatorǁfactorial__mutmut_16': xǁCalculatorǁfactorial__mutmut_16
     }
     
     def factorial(self, *args, **kwargs):
