@@ -35,7 +35,7 @@ class TestCalculator:
             self.calc.factorial(-1)
 
     def test_factorial(self):
-        assert self.calc.factorial(0) == 1
+        assert self.calc.factorial(4) == 24
 
     def test_absolute_value_basic(self):
         """Testa valor absoluto apenas para números positivos."""
