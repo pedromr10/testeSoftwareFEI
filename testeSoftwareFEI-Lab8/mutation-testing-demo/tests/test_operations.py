@@ -45,6 +45,9 @@ class TestCalculator:
     def test_absolute_value_negative(self):
         #testa os negativos
         assert self.calc.absolute_value(-5) == 5
+    def test_absolute_value_zero(self):
+        #testa o zero
+        assert self.calc.absolute_value(0) == 0
 
     def test_max_of_two_equal(self):
         """Testa max apenas quando números são iguais."""
@@ -52,6 +55,7 @@ class TestCalculator:
         # Não testa a > b ou a < b - mutantes sobreviverão
     def test_max_of_two_diff(self):
         assert self.calc.max_of_two(8, 5) == 8
+        assert self.calc.max_of_two(2, 5) == 5
 
     def test_is_positive_true(self):
         """Testa is_positive apenas para números positivos."""
@@ -69,20 +73,24 @@ class TestCalculator:
     def test_grade_classification_a(self):
         """Testa classificação apenas para nota A."""
         assert self.calc.grade_classification(95) == "A"
+        assert self.calc.grade_classification(90) == "A"
         # Não testa outras faixas - mutantes em outras condições sobreviverão
     def test_grade_classification_rest(self):
         #testa para as outras notas (a, b, c, d, f):
-        #dei uma pesquisada e coloquei uns valores medianos
         assert self.calc.grade_classification(85) == "B"
+        assert self.calc.grade_classification(80) == "B"
         assert self.calc.grade_classification(75) == "C"
+        assert self.calc.grade_classification(70) == "C"
         assert self.calc.grade_classification(65) == "D"
+        assert self.calc.grade_classification(60) == "D"
         assert self.calc.grade_classification(55) == "F"
 
     def test_fibonacci_base_case(self):
         """Testa Fibonacci apenas para caso base."""
         assert self.calc.fibonacci(1) == 1
-        # Não testa n=0, n=2, n>2 - muitos mutantes sobreviverão
+        
     def test_fibonacci_others_case(self):
+        #testa pros outros valores
         assert self.calc.fibonacci(0) == 0
         assert self.calc.fibonacci(2) == 1
         assert self.calc.fibonacci(6) == 8
@@ -90,7 +98,20 @@ class TestCalculator:
     def test_is_prime_true_case(self):
         """Testa is_prime apenas para um número primo."""
         assert self.calc.is_prime(7) is True
+        assert self.calc.is_prime(17) is True
+        assert self.calc.is_prime(2) is True #caso especial
+        
         # Não testa números compostos, casos especiais - mutantes sobreviverão
+
+    def test_is_prime_false_case(self):
+        assert self.calc.is_prime(6) is False
+        assert self.calc.is_prime(16) is False
+        assert self.calc.is_prime(9) is False
+        assert self.calc.is_prime(15) is False
+        assert self.calc.is_prime(1) is False #caso especial
+        assert self.calc.is_prime(0) is False #caso especial tbm
+        assert self.calc.is_prime(-7) is False #so pra desencargo de consciencia botar um negativo
+        assert self.calc.is_prime(-17) is False
 
     def test_subtract(self):
         assert self.calc.subtract(5, 3) == 2
@@ -106,4 +127,41 @@ class TestCalculator:
 
     def test_min_of_three(self):
         assert self.calc.min_of_three(1, 2, 3) == 1
-        assert self.calc.min_of_three(25, 190, 74) == 25
+        assert self.calc.min_of_three(25, 190, 1) == 1
+        assert self.calc.min_of_three(190, 1, 74) == 1
+        assert self.calc.min_of_three(0, 0, 0) == 0
+        assert self.calc.min_of_three(1, 0, 0) == 0
+        assert self.calc.min_of_three(0, 1, 0) == 0
+        assert self.calc.min_of_three(0, 0, 1) == 0
+
+        assert self.calc.min_of_three(0, 1, 1) == 0
+        assert self.calc.min_of_three(1, 0, 1) == 0
+        assert self.calc.min_of_three(1, 1, 0) == 0
+
+        assert self.calc.min_of_three(5, 2, 2) == 2
+
+    #ADICIONANDO FUNCOES QUE NAO TINHAM:
+
+    def test_compare_numbers(self):
+        assert self.calc.compare_numbers(1, 2) == "menor"
+        assert self.calc.compare_numbers(25, 2) == "maior"
+        assert self.calc.compare_numbers(2, 2) == "igual"
+    
+    def test_count_digits(self):
+        assert self.calc.count_digits(0) == 1
+        assert self.calc.count_digits(1) == 1
+        assert self.calc.count_digits(10) == 2
+        assert self.calc.count_digits(100) == 3
+        assert self.calc.count_digits(-1) == 1
+
+    def test_calculate_discount(self): #precisa complementar
+        assert self.calc.calculate_discount(10, 0) == 10
+        assert self.calc.calculate_discount(10, 10) == 9
+
+    def test_is_in_range(self):
+        #num, min, max
+        assert self.calc.is_in_range(10, 0, 11) is True
+        assert self.calc.is_in_range(0, 0, 10) is True
+        assert self.calc.is_in_range(10, 10, 10) is True
+        assert self.calc.is_in_range(11, 0, 10) is False
+        assert self.calc.is_in_range(-1, 0, 10) is False
