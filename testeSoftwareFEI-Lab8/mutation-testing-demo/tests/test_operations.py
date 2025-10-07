@@ -42,16 +42,24 @@ class TestCalculator:
         """Testa valor absoluto apenas para números positivos."""
         assert self.calc.absolute_value(5) == 5
         # Não testa números negativos - mutante pode sobreviver
+    def test_absolute_value_negative(self):
+        #testa os negativos
+        assert self.calc.absolute_value(-5) == 5
 
     def test_max_of_two_equal(self):
         """Testa max apenas quando números são iguais."""
         assert self.calc.max_of_two(5, 5) == 5
         # Não testa a > b ou a < b - mutantes sobreviverão
+    def test_max_of_two_diff(self):
+        assert self.calc.max_of_two(8, 5) == 8
 
     def test_is_positive_true(self):
         """Testa is_positive apenas para números positivos."""
         assert self.calc.is_positive(10) is True
         # Não testa números negativos ou zero - mutantes sobreviverão
+    def test_is_positive_false(self):
+        assert self.calc.is_positive(0) is False
+        assert self.calc.is_positive(-10) is False
 
     def test_calculate_percentage_basic(self):
         """Testa porcentagem apenas para um caso simples."""
@@ -62,11 +70,22 @@ class TestCalculator:
         """Testa classificação apenas para nota A."""
         assert self.calc.grade_classification(95) == "A"
         # Não testa outras faixas - mutantes em outras condições sobreviverão
+    def test_grade_classification_rest(self):
+        #testa para as outras notas (a, b, c, d, f):
+        #dei uma pesquisada e coloquei uns valores medianos
+        assert self.calc.grade_classification(85) == "B"
+        assert self.calc.grade_classification(75) == "C"
+        assert self.calc.grade_classification(65) == "D"
+        assert self.calc.grade_classification(55) == "F"
 
     def test_fibonacci_base_case(self):
         """Testa Fibonacci apenas para caso base."""
         assert self.calc.fibonacci(1) == 1
         # Não testa n=0, n=2, n>2 - muitos mutantes sobreviverão
+    def test_fibonacci_others_case(self):
+        assert self.calc.fibonacci(0) == 0
+        assert self.calc.fibonacci(2) == 1
+        assert self.calc.fibonacci(6) == 8
 
     def test_is_prime_true_case(self):
         """Testa is_prime apenas para um número primo."""
