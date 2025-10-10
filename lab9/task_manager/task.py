@@ -6,3 +6,4 @@ Funcionalidades obrigatórias:
 4 - Atualizar status da arefa;
 5 - Deletar tarefas.
 '''
+
