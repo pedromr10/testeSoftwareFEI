@@ -7,21 +7,26 @@ Funcionalidades obrigatórias:
 5 - Deletar tarefas.
 '''
 
-from enum import IntEnum
+from datetime import datetime
+from enum import IntEnum, Enum
+
 class Priority(IntEnum):
-  BAIXA = 1
-  MEDIA = 2
-  ALTA = 3
+  def __init__(self):
+    self._BAIXA = 1
+    self._MEDIA = 2
+    self._ALTA = 3
 
 class Status(Enum):
-  PENDENTE = "pendente"
-  EM_PROGRESSO = "em_progresso"
-  CONCLUIDA = "concluida"
+  def __init__(self):
+    self._PENDENTE = "pendente"
+    self._EM_PROGRESSO = "em_progresso"
+    self._CONCLUIDA = "concluida"
 
 class Atributes():
-  id = 1
-  titulo = ""
-  descricao = ""
-  prioridade = Priority
-  prazo = 
-  status: Status (padrão: PENDENTE)
+  def __init__(self):
+    self._id = 1
+    self._titulo = ""
+    self._descricao = ""
+    self._prioridade = Priority
+    self._prazo = datetime.now()
+    self._status = Status
