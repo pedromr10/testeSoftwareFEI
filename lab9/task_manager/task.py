@@ -43,6 +43,8 @@ def deletar_tarefas():
   return
 def sair():
   return
+def validar():
+  return
 
 def menu():
   print("1 - Criar tarefa\n2 - Listar tarefas\n3 - Buscar tarefas\n4 - Atualizar tarefas\n5 - Deletar tarefas\n\n0 - Sair\n")
