@@ -1,3 +1,4 @@
 Passo a passo:
 1 - Criar uma virtual environment (venv): "python -m venv venv"
-2 - Acssar 
+2 - Acessar a venv em bash:  source venv/bin/activate
+3 - Instalar requerimentos do arquivo requirements.txt: pip install -r requirements.txt
